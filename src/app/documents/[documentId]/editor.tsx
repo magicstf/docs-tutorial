@@ -2,7 +2,7 @@
  * @Author: sutengfei
  * @Date: 2024-12-10 16:41:16
  * @LastEditors: sutengfei
- * @LastEditTime: 2024-12-12 17:06:56
+ * @LastEditTime: 2024-12-13 18:23:28
  */
 "use client";
 import StarterKit from "@tiptap/starter-kit";
@@ -19,9 +19,14 @@ import FontFamily from "@tiptap/extension-font-family";
 import TextStyle from "@tiptap/extension-text-style";
 import { Color } from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
+import Link from "@tiptap/extension-link";
+import TextAlign from "@tiptap/extension-text-align";
 
 import { useEditorStore } from "@/store/use-editor-store";
 import { useEditor, EditorContent } from "@tiptap/react";
+
+import { FontSizeExtension } from "@/extensions/font-size";
+import { LineHeightExtension } from "@/extensions/line-height";
 export const Editor = () => {
   const { setEditor } = useEditorStore();
   const editor = useEditor({
@@ -58,6 +63,7 @@ export const Editor = () => {
     },
     extensions: [
       StarterKit,
+      FontSizeExtension,
       TaskList,
       TaskItem.configure({
         nested: true,
@@ -77,6 +83,18 @@ export const Editor = () => {
       TextStyle,
       Color,
       Highlight.configure({ multicolor: true }),
+      Link.configure({
+        openOnClick: false,
+        autolink: true,
+        defaultProtocol: "https",
+      }),
+      TextAlign.configure({
+        types: ["heading", "paragraph"],
+      }),
+      LineHeightExtension.configure({
+        types: ["heading", "paragraph"],
+        defaultLineHeight: "normal",
+      }),
     ],
     content: `
         <table>
