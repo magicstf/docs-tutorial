@@ -2,9 +2,10 @@
  * @Author: sutengfei
  * @Date: 2024-12-10 15:03:21
  * @LastEditors: sutengfei
- * @LastEditTime: 2024-12-11 15:39:51
+ * @LastEditTime: 2024-12-16 15:32:20
  */
 import { Editor } from "./editor";
+import { Navbar } from "./navbar";
 import { Toolbar } from "./toolbar";
 interface DocumentIdPageProps {
   params: Promise<{ documentId: string }>;
@@ -14,8 +15,14 @@ const DocumentIdPage = async ({ params }: DocumentIdPageProps) => {
 
   return (
     <div className="min-h-screen bg-[#fafbfd]">
-      <Toolbar />
-      <Editor />
+      <div className="flex flex-col px-4 pt-2 gap-y-2 fixed top-0 left-0 right-0 z-10 bg-[#fafbfd] print:hidden">
+        <Navbar />
+        <Toolbar />
+      </div>
+
+      <div className="pt-[114px]">
+        <Editor />
+      </div>
     </div>
   );
 };
