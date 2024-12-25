@@ -2,10 +2,12 @@
  * @Author: sutengfei
  * @Date: 2024-12-10 09:34:29
  * @LastEditors: sutengfei
- * @LastEditTime: 2024-12-16 17:43:34
+ * @LastEditTime: 2024-12-25 11:40:27
  */
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
+
 import "./globals.css";
 
 const inter = Inter({
@@ -23,7 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <NuqsAdapter>{children}</NuqsAdapter>
+      </body>
     </html>
   );
 }

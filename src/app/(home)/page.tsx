@@ -2,11 +2,12 @@
  * @Author: sutengfei
  * @Date: 2024-12-10 09:34:29
  * @LastEditors: sutengfei
- * @LastEditTime: 2024-12-24 11:08:06
+ * @LastEditTime: 2024-12-25 16:28:32
  */
 import Link from "next/link";
 
 import { Navbar } from "./navbar";
+import { TemplatesGallery } from "./templates-gallery";
 const Home = () => {
   return (
     <div className="flex flex-col min-h-screen">
@@ -14,11 +15,7 @@ const Home = () => {
         <Navbar />
       </div>
       <div className="mt-16">
-        Click
-        <Link href="/documents/123">
-          <span className="underline text-blue-400">&nbsp;here</span> to go to
-          document Id
-        </Link>
+        <TemplatesGallery />
       </div>
     </div>
   );
